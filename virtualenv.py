@@ -1663,7 +1663,7 @@ def fixup_scripts(home_dir, bin_dir):
             logger.warn('Script %s is an empty file' % filename)
             continue
 
-        old_shebang = lines[0].strip()
+        old_shebang = lines[0].strip().replace('"','')
         old_shebang = old_shebang[0:2] + os.path.normcase(old_shebang[2:])
 
         if not old_shebang.startswith(shebang):
